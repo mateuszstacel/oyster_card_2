@@ -33,4 +33,26 @@ describe Oystercard do
     end
   end
 
+  describe '#touch_in' do
+    it { is_expected.to respond_to :touch_in }
+    it 'check if card is touch in' do
+      expect(subject.touch_in).to eq true
+    end
+  end
+
+  describe '#touch_out' do
+    it { is_expected.to respond_to :touch_out }
+    it 'check if card is touck out' do
+      expect(subject.touch_out).to eq false
+    end
+  end
+
+  describe '#in_journey?' do
+    it { is_expected.to respond_to :in_journey? }
+    it 'checks if card is in journey' do
+      allow(subject).to receive(:in_journey?).and_return(true)
+      expect(subject.in_journey?).to eq true
+    end
+  end
+
 end
